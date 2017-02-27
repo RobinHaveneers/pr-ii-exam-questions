@@ -91,10 +91,124 @@ innerbottommargin=5pt]{qbox}
 \end{titlepage}
 
 \newpage
-
+\section*{20th August 2016}
 \begin{quest}
-Example question?
+Tinne:
+What criterion is optimized in LDA?
+Does it make sense to apply PCA before LDA,why(not)?
+Luc:
+State Optical Flow(OF) equation, and discuss what are unknowns and knowns? While solving OF equation we ran into a problem, what was that?
+We can use OF to find stereo correspondences, however, people don't use it, why?
 \end{quest}
-
+\section*{14 juni 2016}
+\begin{quest}
+Tinne:
+Explain how one can form a deep neural network using perceptrons.
+We want to implement an automatic traffic sign detection system. We have lots of labeled training data available, but these images were all taken under the same conditions (using a fixed point of view, daylight, ...). Unfortunately, the test data will not always satisfy these conditions (for example: we also want the system to work at night, when the camera is fixed at a different location in the car, ...). Would you then prefer this recognition system to be based on handcrafted features or on a deep neural network? Why? Explain. What are the pros \& cons of both methods in this case?
+Luc:
+What is the fundamental matrix? Give the relevant equation (without the entire derivation). How do you use this equation in practice? What is its link with epipolar geometry? What is its dimensionality and its rank?
+We noticed that all epipolar lines were horizontally aligned in the simple stereo set-up. Do other set-ups with horizontal epipolar lines exist? If yes: give them or give the necessary condition(s), if no: explain why not.
+\end{quest}
+\section*{10 juni 2016}
+\begin{quest}
+Alles bij Tinne:
+Vraag 1:
+Explain how a Laplacian of Gaussian is used in edge detection.
+You got 1 base image and then 5 images where some operation/filtering was done on the base image.
+What operation/algorithm was used? What is the use for this operation in practice? (vb Sobel filter, for edge detection)
+Can you implement the operation as a convolution?
+Give, if possible, the filter.
+Vraag 2:
+What is the difference between classification and regression.
+How could you perform regression with a Random Forest. (Die we alleen voor classification gezien hebben)
+Random Forest en K Nearest Neighbour are somewhat similar. Explain.
+\end{quest}
+\section*{27 juni 2015}
+\begin{quest}
+Tinne:
+Leg het verschil uit tussen MLE en MAP.
+a) Foto van Tom en Jerry gegeven en ze hadden allebei een tekstballonnetje en dan moesten we zeggen wie bij MAP hoorde en wie bij MLE (in 1 van de tekstballonnetjes stond 'prior' dus dat was heel duidelijk).
+b) Wanneer geven MAP en MLE hetzelfde resultaat?
+Luc:
+Fundamentele matrix uitleggen. Bij deze vraag stond ook stereo vernoemd (niet afleiden).
+Bij de vereenvoudigde stereo opstelling lopen de epipolaire lijnen horizontaal. Weet je nog opstellingen waarbij dit zo is of is dit de enige opstelling waarbij en waarom?
+\end{quest}
+\section*{6 juni 2015}
+\begin{quest}
+Tinne:
+Hoe kan het detectie probleem veranderd worden in een classificatie probleem
+bespreek de in de les besproken unsupervised classifiers in termen van hun efficientie. Welke parameter(s) beinvloed dit het meest?
+Luc:
+wat is het doel van optical flow en geef 2 voorbeelden waarbij dit doel niet wordt bereikt.
+Stel, je loopt rond in een statische scene. Hoe kan het aperture probleem verdwijnen? Wanneer zal dit niet het geval zijn?
+\end{quest}
+\section*{15 juni 2015}
+\begin{quest}
+Tinne
+Wat zijn visuele woorden, hoe worden ze geconstrueerd en waarvoor worden ze gebruikt.
+Zijn meerdere woordenboeken (gebaseerd op dezelfde features) nuttig?
+Luc
+The optical flow algorithm (Horn and Schunck) is an example where we use regularisation. Can you discuss why and how this concept was used, based on the functional that optical flow optimises.
+Suppose one has two subsequent frames of a video sequence, taken at time t and at time t+1, resp. One could extract OF from fram t to t+1 or from t+1 to t. Would it make sense to do so?
+\end{quest}
+\section*{13 juni 2014}
+\begin{quest}
+Tinne
+Iets over forrest classifier.
+Hoe zorgen we ervoor dat niet elke boom hetzelfde is?
+Hoe combineren we deze bomen tot één classifier?
+Hoe wordt de forrest classifier gebruikt bij het opdelen in lichaamsdelen met de kinect camera (toep uit boek).
+Luc
+We derived the pinhole camera model. As part of that model we have the 'calibration matrix', usually indicated as K. Discuss the coefficient in that matrix and their meaning.
+In order to get decent images with pinhole cameras, we had to introduce a lens. Yet, for really high-quality images one would perfer using mirrors. Why? Mirrors are cheap, so why are not all cameras made with mirrors instead of lenses?
+\end{quest}
+\section*{6 september 2013}
+\begin{quest}
+Tinne
+Explain how you can assess different (sub)sets of features for a given task by splitting the data in training, validation and test set.
+What would happen if by mistake data was not split correctly such that
+part of the training and validation overlap
+part of the validation and test overlap
+part of the test and training overlap
+Luc
+What is a Gabor filter?
+How are Gabor filters used for texture analysis?
+\end{quest}
+\section*{14 juni 2013}
+\begin{quest}
+PCA
+What is the goal of PCA? Also describe the steps, without mathematical details for the derivation of the PCs.
+Decorrelation between the PCs implied their orthogonality. Are Decorrelation and orthogonality synonymous in general?
+Many computer vision applications rely on a set of correspondences between a pair of images (or between a test image and images in a database). Matching descriptors computed on local features is however, typically confronted with 2 problems:
+a. It's relatively slow if implemented naively
+b. It often vails when only based on matching individual descriptors.
+How can we overcome these 2 problems? Give a short description of how this would work.
+Suppose we have a visual inspection system consisting of a camera mounted above a conveyor belt in such a way that its image plane is parallel to the surface. On that surface, a set of flat objects (e.g. thin boxes) pass by that need to be recognized. Since the objects have enough texture, this can be done based on feature matching. Can you detail how you would implement this (incl. the solution to problem b above).
+\end{quest}
+\section*{14 juni 2013}
+\begin{quest}
+Regularization
+Explain 'Regularization' and give an example of when and how we used it. (no formulas required)
+Suppose we observed a scene, we take a first image. While we have moved to a second, nearby position, where we take a second image, a single object, small compared to the visible scene, has moved. How can we determine what has moved on basis of the two images?
+Agglomerative clustering
+What is agglomerative clustering?
+We use k-means to form a vocabulary (and put it in a database). Could we use agglomerative clustering as well?
+\end{quest}
+\section*{27 juni 2012}
+\begin{quest}
+There were two questions both for image and pattern part.
+Image Interpretation:
+What is Fundamental matrix? The use of it, the rank of it, why is it related to epipolar geometry? No derivations but it is better to write l=F*p` and p'*F*p=0
+(It s a linear equation that is why we need 8 constraint to calculate F). For 7 constrains case we make det(F)=0 and it is a nonlinear cubic equation).
+In stereo vision we use simple camera settings. In this case the epipolar lines are horizontal, show it. Is it the only way where epipolar lines are horizontal? Explain.
+(The answer we can put two cameras on the same line and shift one of them. In this case epipoles go to the infinity and epipolar lines become horizontal. It is also explained in the text notes. Also, if we fix the cameras and move the image plane further, namely, increasing focal length of the camera, the epipoles again go to infinity and epipolar lines become parallel.)
+Pattern Recognition
+What is vector quantization? How to apply it? what is mainly application of it in computer vision? What are the advantages of using it?
+(We can apply it by using K-means for example and it is used in data compression and lossy data compression. It compress the data and help with computation time.)
+Person re-identification.
+There were images and some algorithms were given. You are wanted to find the person. Think that you are working in a company and your boss wants you to re-identify the person. You know how to the height and walking speed of persons. you also know the upper and lower body (the pixel positions of them).
+By using only color information and upper body position, how to identify the persons.
+By using all the infos above, how to identify?
+\end{quest}
 \end{document}
 
