@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[dutch]{babel}
+\usepackage{xcolor}
+\usepackage[framemethod=default]{mdframed}
+\usepackage{tocloft}
+\usepackage{adjustbox}
+\usepackage{pbox}
+\usepackage{enumitem}
+\usepackage{comment}
+
+
+\usepackage{chngcntr}
+\counterwithout{subsection}{section}
+% Question command
+\newtheorem{qtext}{Question}
+\let\olddefinition\qtext
+\renewcommand{\qtext}{\olddefinition\normalfont}
+
+\makeatletter
+\renewcommand*{\@seccntformat}[1]{\csname the#1\endcsname\hspace{0.2 cm}}
+\makeatother
+
+\renewcommand{\thesubsection}{Chapter \arabic{subsection} -}
+\renewcommand{\thesection}{Part \arabic{section} -}
+
+% Set text counters
+\setcounter{qtext}{0}
+\setcounter{section}{0}
+
+\NewDocumentEnvironment{quest}{o}
+ {\IfNoValueTF{#1}
+   {\question\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Vraag}}
+   {\question\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}Vraag: #1}}%
+   \ignorespaces}
+ {\stepcounter{subsubsection}\endquestion}
+
+
+% Define layout QuestionBox
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+rightline=false,
+leftline=false,
+topline=true,
+bottomline=false,
+linecolor=gray,
+backgroundcolor=black!8,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=2pt,
+innerbottommargin=5pt]{qbox}
+\newenvironment{question}{\begin{qbox}\begin{qtext}}{\end{qtext}\end{qbox}}
+
+\addtolength{\cftsecnumwidth}{20pt}
+\addtolength{\cftsubsecnumwidth}{25pt}
+\renewcommand\cftsecfont{\bfseries}
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\newcommand*{\titleGM}{\begingroup % Create the command for including the title page in the document
+
+\hbox{ % Horizontal box
+\hspace*{0.2\textwidth} % Whitespace to the left of the title page
+\rule{1pt}{\textheight} % Vertical line
+\hspace*{0.05\textwidth} % Whitespace between the vertical line and title page text
+\parbox[b]{0.75\textwidth}{ % Paragraph box which restricts text to less than the width of the page
+
+{\noindent\huge\bfseries Pattern Recognition \& \\ Image Interpretation\\ \large(H09J2a)}\\[2\baselineskip] % Title
+{\large \textit{Solutions to possible exam questions.}}\\[4\baselineskip] % Tagline or further description
+{\Large \textsc{Robin Haveneers}}\\[0.5\baselineskip]
+
+\vspace{0.5\textheight} % Whitespace between the title block and the publisher
+{\noindent \includegraphics[scale=0.15]{kul.jpg}}\\[\baselineskip] % Publisher and logo
+}}
+\endgroup}
+
+%----------------------------------------------------------------------------------------
+%	BLANK DOCUMENT
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+\begin{titlepage}
+\pagenumbering{gobble}
+\pagestyle{empty}
+\titleGM % This command includes the title page
+\end{titlepage}
+
+\newpage
+
+\begin{quest}
+Example question?
+\end{quest}
+
+\end{document}
+
